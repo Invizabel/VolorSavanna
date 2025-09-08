@@ -331,6 +331,75 @@ static inline const char * VolorSavannaGame()
         level = 0;
         return result;
     }
+
+    if (character == "the_mighty_lion" && level == 4 && choice == 1)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to kill the zebras.\nBecause you have chosen to do this you don't go hungry.\nNight falls.\nDo you sleep on the ground or in a tree?\n\n1- Ground; 2- Tree\nMake your choice ") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to kill the zebras.\nBecause you have chosen to do this you don't go hungry.\nNight falls.\nDo you sleep on the ground or in a tree?\n\n1- Ground; 2- Tree\nMake your choice ");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 5;
+        return result;
+    }
+
+    if (character == "the_mighty_lion" && level == 4 && choice == 2)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to kill the zebras.\nBecause you have chosen to do this you don't go hungry.\nNight falls.\nDo you sleep on the ground or in a tree?\n\n1- Ground; 2- Tree\nMake your choice ") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to kill the zebras.\nBecause you have chosen to do this you don't go hungry.\nNight falls.\nDo you sleep on the ground or in a tree?\n\n1- Ground; 2- Tree\nMake your choice ");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 5;
+        return result;
+    }
+
+    if (character == "the_mighty_lion" && level == 4 && choice == 2)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to kill the zebras.\nUnfortunately, because of this, you starve.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to kill the zebras.\nUnfortunately, because of this, you starve.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (character == "the_mighty_lion" && level == 5 && choice == 1)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to sleep on the ground.\nUnfortunately, a dingo comes up and gobbles you up.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to sleep on the ground.\nUnfortunately, a dingo comes up and gobbles you up.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (character == "the_mighty_lion" && level == 5 && choice == 2)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to sleep in a tree.\nNo animals eat you.\nYou see a river.\nDo you drink from it?\n\n1- Yes; 2- No\nMake your choice ") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to sleep in a tree.\nNo animals eat you.\nYou see a river.\nDo you drink from it?\n\n1- Yes; 2- No\nMake your choice ");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 6;
+        return result;
+    }
+
+    if (character == "the_mighty_lion" && level == 6 && choice == 1)
+    {
+        level = 0;
+        character = "the_mighty_lion_terrain";
+    }
+
+    if (character == "the_mighty_lion" && level == 6 && choice == 2)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to drink from the river.\nYour fellow warriors have.\nThe river doesn't make them sick because the river comes from a far off glacier.\nUnfortunately, you cross the river and find no more water sources.\nYou die from dehydration.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to drink from the river.\nYour fellow warriors have.\nThe river doesn't make them sick because the river comes from a far off glacier.\nUnfortunately, you cross the river and find no more water sources.\nYou die from dehydration.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
     
     else
     {

@@ -4,5 +4,7 @@ COMPLETE:
 * Python
 
 TODO:
+* C/C++
+* Go
 * TI
 * Web

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string.h>
 
-using namespace std;
 extern "C"
 {
     #include "VolorSavanna.h"
@@ -9,15 +8,15 @@ extern "C"
 
 int main()
 {
-    string pause;
-    cout << name_prompt;
-    cin >> name;
+    char pause[1];
+    printf("%s", name_prompt);
+    scanf("%s", name);
     
     while (true)
     {
-        cout << character_prompt << endl;
-        cin >> character;
-        if (character == "e")
+        printf("%s", character_prompt);;
+        scanf("%s", character);
+        if (strcmp(character, "e") == 0)
         {
             return 0;
         }
@@ -26,13 +25,14 @@ int main()
         {
             while (true)
             {
-                cout << VolorSavannaGame() << endl;
+                printf("%s", VolorSavannaGame());
                 if (level == 0)
                 {
-                    cin >> pause;
+                    printf("%s", "\nPress any key to continue!");
+                    scanf("%s", pause);
                     break;
                 }
-                cin >> choice;
+                scanf("%s", choice);
             }
 
         }

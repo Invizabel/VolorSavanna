@@ -1,18 +1,12 @@
-#ifndef VOLORSAVANNA_H
-#define VOLORSAVANNA_H
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
+#include <stdbool.h>
+#include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 char name[256];
 char character[256];
 char choice[1];
 int level = 0;
-int new_rand;
+int new_;
 char name_prompt[256] = "What is your name?\n";
 char character_prompt[256] = "Welcome to Volor Savanna!\nYou are a member of an African Tribe!\nWho do you want to be?\n\n1- Hunter\n2- Warrior\n3- Crafter\n4- Farmer\n5- Medicine Person\ne- exit\n";
 
@@ -35,9 +29,7 @@ static inline const char * victory_level(char * name)
 }
 
 static inline const char * VolorSavannaGame()
-{
-    srand(time(NULL));
-    
+{   
     if (strcmp(character, "1") == 0 && level == 0)
     {
         size_t length = strlen(name) + strlen("You have chosen to be a hunter!\nDo you want to go hunt or stay put?\n\n1- Hunt; 2- Stay put\nMake your choice ") + strlen(":\n") + 1;
@@ -408,12 +400,7 @@ static inline const char * VolorSavannaGame()
     
     else
     {
-        return 0;
+        level = -1;
+        return "\nInvalid option!\n";
     }
 }
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif

@@ -10,5 +10,5 @@ TODO:
 * Web
 
 To play:
-python (mac/linux): python3 -m venv env && source env/bin/activate && pip install VolorSavanna && python3 -m VolorSavanna
-python (windows): pip install VolorSavanna && python3 -m VolorSavanna
+* Python (Mac/Linux): python3 -m venv env && source env/bin/activate && pip install VolorSavanna && python3 -m VolorSavanna
+* Python (Windows): pip install VolorSavanna && python3 -m VolorSavanna

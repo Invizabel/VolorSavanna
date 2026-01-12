@@ -1,4 +1,3 @@
-#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -6,7 +5,7 @@ char name[256];
 char character[256];
 char choice[1];
 int level = 0;
-int new_;
+int new_rand;
 char name_prompt[256] = "What is your name?\n";
 char character_prompt[256] = "Welcome to Volor Savanna!\nYou are a member of an African Tribe!\nWho do you want to be?\n\n1- Hunter\n2- Warrior\n3- Crafter\n4- Farmer\n5- Medicine Person\ne- exit\n";
 

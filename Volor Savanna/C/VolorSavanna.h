@@ -629,6 +629,142 @@ static inline const char * VolorSavannaGame()
         level = 1;
         return result;
     }
+
+    if (strcmp(character, "3") == 0 && level == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to be a crafter!\nYou need to craft some arrows.\nHow do you want to craft them?\n1- Put red dye on the feathers; 2- Just make them\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to be a crafter!\nYou need to craft some arrows.\nHow do you want to craft them?\n1- Put red dye on the feathers; 2- Just make them\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 1;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 1 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to put red dye on the feathers!\nBecause you put red dye on the feathers none were lost so the hunters were able to bring home more food!\nBecause of this you have one months worth of food for the winter!\nYou have been asked to craft some spearheads.\nHow do you want to craft them?\n1- Put poison on the spearheads; 2- Just make them\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to put red dye on the feathers!\nBecause you put red dye on the feathers none were lost so the hunters were able to bring home more food!\nBecause of this you have one months worth of food for the winter!\nYou have been asked to craft some spearheads.\nHow do you want to craft them?\n1- Put poison on the spearheads; 2- Just make them\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 2;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 1 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to just make the arrows.\nUnfortunately, because of this the hunters lost some arrows and didnt bring home much food.\nEven worse than that, Master Chief comes into your tribe and pwns all of you!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to just make the arrows.\nUnfortunately, because of this the hunters lost some arrows and didnt bring home much food.\nEven worse than that, Master Chief comes into your tribe and pwns all of you!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 2 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to put poison on the spear heads.\nThe animals die easier and your tribe gets more food for the winter.\nTo be exact one more month of food.\nSome white men come to your tribe.\nTheyre paying a fortune for you to craft them some of your best acacia furniture.\nDo you want to craft some expensive acacia furniture for them, or do you not want to craft them the furniture their asking for?\n1- Craft them furniture; 2- Not craft them furniture\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to put poison on the spear heads.\nThe animals die easier and your tribe gets more food for the winter.\nTo be exact one more month of food.\nSome white men come to your tribe.\nTheyre paying a fortune for you to craft them some of your best acacia furniture.\nDo you want to craft some expensive acacia furniture for them, or do you not want to craft them the furniture their asking for?\n1- Craft them furniture; 2- Not craft them furniture\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 3;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 2 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to just make the spear heads.\nBecause you didnt put poison on the spear heads the hunters only brought back three gazelles.\nUnfortunately, the gazelles get mold on them.\nEven worse, you eat the moldy gazelles and die from food poisoning.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to just make the spear heads.\nBecause you didnt put poison on the spear heads the hunters only brought back three gazelles.\nUnfortunately, the gazelles get mold on them.\nEven worse, you eat the moldy gazelles and die from food poisoning.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 3 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to craft them furniture.\nThe people you give the furniture to like your work.\nThey pay you in gold.\nYou can use this to buy a milling machine from a city nearby.\nDo you buy a milling machine?\n1- Yes; 2- No\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to craft them furniture.\nThe people you give the furniture to like your work.\nThey pay you in gold.\nYou can use this to buy a milling machine from a city nearby.\nDo you buy a milling machine?\n1- Yes; 2- No\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 4;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 3 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to craft them furniture.\nBecause of this they want to kill you.\nDo you escape?\n1- Find out!\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to craft them furniture.\nBecause of this they want to kill you.\nDo you escape?\n1- Find out!\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 5;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 4 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to buy a milling machine.\nSome business men have come to your tribe and are asking you to build them some wooden toys with your milling machine.\nDo you want to build them wooden toys with your milling machine?\n1- Yes; 2- No\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to buy a milling machine.\nSome business men have come to your tribe and are asking you to build them some wooden toys with your milling machine.\nDo you want to build them wooden toys with your milling machine?\n1- Yes; 2- No\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 6;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 4 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to buy a milling machine.\nUnfortunately, you tribe dies from a famine.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to buy a milling machine.\nUnfortunately, you tribe dies from a famine.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 5 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You escape.\nUnfortunately, an asteroid hits the earth and destroys the whole planet.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You escape.\nUnfortunately, an asteroid hits the earth and destroys the whole planet.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 5 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You dont escape.\nThey kill you on the spot.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You dont escape.\nThey kill you on the spot.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 6 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to use your milling machine to make them wooden toys.\nYou have had a successful life!\n") + strlen(victory_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your milling machine to make them wooden toys.\nYou have had a successful life!\n");
+        strcat(result, victory_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "3") == 0 && level == 6 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to make them wooden toys with your milling machine.\nUnfortunately, your milling machine catches on fire and burns down your whole house.\nWhats even more unfortunate is that you get caught on fire and burn to death.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to make them wooden toys with your milling machine.\nUnfortunately, your milling machine catches on fire and burns down your whole house.\nWhats even more unfortunate is that you get caught on fire and burn to death.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
     
     else
     {

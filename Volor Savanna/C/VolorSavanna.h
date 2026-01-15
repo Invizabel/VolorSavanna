@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -248,6 +249,108 @@ static inline const char * VolorSavannaGame()
         return result;
     }
 
+    if (strcmp(character, "2") == 0 && level == 1 && strcmp(choice, "1") == 0)
+    {
+        level = 0;
+        strncpy(character, "the_mighty_lion", sizeof(character));
+    }
+
+    if (strcmp(character, "2") == 0 && level == 1 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to stay put.\nWithout warning a neighboring tribe attacks.\nDo you choose to get your bow and arrows in your hut, or do you choose to fight them off with your knife on hand?\n\n1- Go get my bow and arrows; 2- Use my knife\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to stay put.\nWithout warning a neighboring tribe attacks.\nDo you choose to get your bow and arrows in your hut, or do you choose to fight them off with your knife on hand?\n\n1- Go get my bow and arrows; 2- Use my knife\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 2;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 2 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to go get your bow and arrows.\nUnfortunately, the enemy beats you to it and shoots you on the spot.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to go get your bow and arrows.\nUnfortunately, the enemy beats you to it and shoots you on the spot.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 2 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to use your knife.\nYou are very skilled with a knife.\nEventually the enemy tribe retreats.\nThe chief has told you to go take a weekend off at the Big Pond.\nYou go to the Big Pond and enjoy it very much.\nYou see a crying baby by the side of the Big Pond.\nDo you pick up the baby and bring him home or just ignore him?\n\n1- Pick him up and bring him home; 2- Just ignore him\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your knife.\nYou are very skilled with a knife.\nEventually the enemy tribe retreats.\nThe chief has told you to go take a weekend off at the Big Pond.\nYou go to the Big Pond and enjoy it very much.\nYou see a crying baby by the side of the Big Pond.\nDo you pick up the baby and bring him home or just ignore him?\n\n1- Pick him up and bring him home; 2- Just ignore him\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 3;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 3 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to pick up the baby and bring him home.\nThe baby turns out to be an orphan.\nHis mother was killed by the enemy tribe and the baby was left by the Big Pond.\nYou raise him as your own.\nHe becomes a great warrior and you name him Bobert.\nYou need to go hunt down the enemy that attacked your tribe years ago.\nDo you take your son with you?\n\n1- Yes; 2- No\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to pick up the baby and bring him home.\nThe baby turns out to be an orphan.\nHis mother was killed by the enemy tribe and the baby was left by the Big Pond.\nYou raise him as your own.\nHe becomes a great warrior and you name him Bobert.\nYou need to go hunt down the enemy that attacked your tribe years ago.\nDo you take your son with you?\n\n1- Yes; 2- No\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 4;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 3 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to just ignore him.\nDo you choose to go after the enemy tribe with the few warriors you have left?\n\n1- Yes; 2- No\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to just ignore him.\nDo you choose to go after the enemy tribe with the few warriors you have left?\n\n1- Yes; 2- No\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 5;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 4 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to take your son with you.\nYour hunting party would have died if you didnt have your son.\nSince your son is a great warrior the enemy tribe which you now know as Yosemite plans on never attacking your tribe again!\nYou return home and find out your son has a brand-new kid.\nBobert, your son, names him Mighty ") + strlen(name) + strlen(" Jr.\nYou finally have a grandson.\nYou die at a good old age.\nYou pass away happily in your sleep.\n") + strlen(victory_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to take your son with you.\nYour hunting party would have died if you didnt have your son.\nSince your son is a great warrior the enemy tribe which you now know as Yosemite plans on never attacking your tribe again!\nYou return home and find out your son has a brand-new kid.\nBobert, your son, names him Mighty ");
+        strcat(result, name);
+        strcat(result, " Jr.\nYou finally have a grandson.\nYou die at a good old age.\nYou pass away happily in your sleep.\n");
+        strcat(result, victory_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 4 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to take your son with you.\nBecause you didnt take your son, the enemy tribe, Yosemite, kills your whole hunting party.\nYou guys are no match for them!\nUnfortunately, while running away from Yosemite you trip over a rock and die!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to take your son with you.\nBecause you didnt take your son, the enemy tribe, Yosemite, kills your whole hunting party.\nYou guys are no match for them!\nUnfortunately, while running away from Yosemite you trip over a rock and die!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 5 && strcmp(choice, "1") == 0)
+    {
+        size_t length = strlen(name) + strlen("You go after the enemy tribe with the few warriors you have left.\nUnfortunately, while on your way The Mighty Pac-Man gobbles you up.\nYou guys are no match for the The Mighty Pac-Man!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You go after the enemy tribe with the few warriors you have left.\nUnfortunately, while on your way The Mighty Pac-Man gobbles you up.\nYou guys are no match for the The Mighty Pac-Man!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 5 && strcmp(choice, "2") == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen not to go after the enemy tribe.\nUnfortunately, your village gets swept away by a flash flood!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen not to go after the enemy tribe.\nUnfortunately, your village gets swept away by a flash flood!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
+    }
+
     if (strcmp(character, "the_mighty_lion") == 0 && level == 0)
     {
         size_t length = strlen(name) + strlen("You have chosen to hunt The Mighty Lion.\nYou have been on your journey for about a week now.\nThe trail splits off into three sections.\nDo you choose to go through the canyon?\nHow about the prairie?\nOr what about keep continuing through the forest?\n\n1- Canyon; 2- Prairie; 3- Forest\nMake your choice ") + strlen(":\n") + 1;
@@ -399,121 +502,132 @@ static inline const char * VolorSavannaGame()
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to drink from the river.\nLuckily, the water doesnt have any diseases or viruses.\nYou are full.\nYou need to cross the river.\nHowever, the river is very deep.\nYou could make a temporary bridge but that would kill vital time to hunt The Mighty Lion.\nThe fastest way to cross the river is to make a raft.\nWhat do you do?\n\n1- Make a bridge; 2- Build a raft\nMake your choice") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to drink from the river.\nLuckily, the water doesnt have any diseases or viruses.\nYou are full.\nYou need to cross the river.\nHowever, the river is very deep.\nYou could make a temporary bridge but that would kill vital time to hunt The Mighty Lion.\nThe fastest way to cross the river is to make a raft.\nWhat do you do?\n\n1- Make a bridge; 2- Build a raft\nMake your choice");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 1;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to drink from the river.\nLuckily, the water doesnt have any diseases or viruses.\nYou are full.\nYou need to cross the river.\nHowever, the river is very deep.\nYou could make a temporary bridge but that would kill vital time to hunt The Mighty Lion.\nThe fastest way to cross the river is to make a raft.\nWhat do you do?\n\n1- Make a bridge; 2- Build a raft\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to drink from the river.\nLuckily, the water doesnt have any diseases or viruses.\nYou are full.\nYou need to cross the river.\nHowever, the river is very deep.\nYou could make a temporary bridge but that would kill vital time to hunt The Mighty Lion.\nThe fastest way to cross the river is to make a raft.\nWhat do you do?\n\n1- Make a bridge; 2- Build a raft\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 1;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 1 && strcmp(choice, "1") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to make a bridge.\nYour patience pays off and you get across the river in no time!\nThe path splits in two.\nDo you travel through the hills or the extreme hills?\n\n1- Hills; 2- Extreme hills\nMake your choice") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to make a bridge.\nYour patience pays off and you get across the river in no time!\nThe path splits in two.\nDo you travel through the hills or the extreme hills?\n\n1- Hills; 2- Extreme hills\nMake your choice");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 2;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to make a bridge.\nYour patience pays off and you get across the river in no time!\nThe path splits in two.\nDo you travel through the hills or the extreme hills?\n\n1- Hills; 2- Extreme hills\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to make a bridge.\nYour patience pays off and you get across the river in no time!\nThe path splits in two.\nDo you travel through the hills or the extreme hills?\n\n1- Hills; 2- Extreme hills\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 2;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 1 && strcmp(choice, "2") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to build a raft.\nUnfortunately, the river brings you to the rapids before you are able to reach the other side.\nThe rapids are heading towards a waterfall, so you panic.\nYou throw your paddle into the river.\nYou fall down the waterfall and hit the rocks at the bottom.\nYour head splits open and you die!\n") + strlen(death_level(name)) + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to build a raft.\nUnfortunately, the river brings you to the rapids before you are able to reach the other side.\nThe rapids are heading towards a waterfall, so you panic.\nYou throw your paddle into the river.\nYou fall down the waterfall and hit the rocks at the bottom.\nYour head splits open and you die!\n");
-                strcat(result, death_level(name));
-                level = 0;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to build a raft.\nUnfortunately, the river brings you to the rapids before you are able to reach the other side.\nThe rapids are heading towards a waterfall, so you panic.\nYou throw your paddle into the river.\nYou fall down the waterfall and hit the rocks at the bottom.\nYour head splits open and you die!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to build a raft.\nUnfortunately, the river brings you to the rapids before you are able to reach the other side.\nThe rapids are heading towards a waterfall, so you panic.\nYou throw your paddle into the river.\nYou fall down the waterfall and hit the rocks at the bottom.\nYour head splits open and you die!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 2 && strcmp(choice, "1") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to go through the hills.\nYou travel through the hills and see The Mighty Lion!\nWhat weapon do you want to use?\n\n1- Knife; 2- Bow and arrows; 3- Spear; 4- Gun\nMake your choice") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to go through the hills.\nYou travel through the hills and see The Mighty Lion!\nWhat weapon do you want to use?\n\n1- Knife; 2- Bow and arrows; 3- Spear; 4- Gun\nMake your choice");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 3;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to go through the hills.\nYou travel through the hills and see The Mighty Lion!\nWhat weapon do you want to use?\n\n1- Knife; 2- Bow and arrows; 3- Spear; 4- Gun\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to go through the hills.\nYou travel through the hills and see The Mighty Lion!\nWhat weapon do you want to use?\n\n1- Knife; 2- Bow and arrows; 3- Spear; 4- Gun\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 3;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 2 && strcmp(choice, "2") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to go through the extreme hills.\nYou freeze to death.\n") + strlen(death_level(name)) + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to go through the extreme hills.\nYou freeze to death.\n");
-                strcat(result, death_level(name));
-                level = 0;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to go through the extreme hills.\nYou freeze to death.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to go through the extreme hills.\nYou freeze to death.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 3 && strcmp(choice, "1") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to use your trusty knife to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to use your trusty knife to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 4;
-                new_rand = rand() % 2 + 1;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to use your trusty knife to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your trusty knife to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 4;
+        new_rand = rand() % 2 + 1;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 3 && strcmp(choice, "2") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to use your mighty bow and arrows to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to use your mighty bow and arrows to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 4;
-                new_rand = rand() % 2 + 1;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to use your mighty bow and arrows to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your mighty bow and arrows to kill The Mighty Lion!\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 4;
+        new_rand = rand() % 2 + 1;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 3 && strcmp(choice, "3") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to use your powerful spear to kill The Mighty Lion.\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to use your powerful spear to kill The Mighty Lion.\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
-                strcat(result, name);
-                strcat(result, ":\n");
-                level = 4;
-                new_rand = rand() % 2 + 1;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to use your powerful spear to kill The Mighty Lion.\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your powerful spear to kill The Mighty Lion.\nSo, +  do you kill The Mighty Lion?\n\n1- Find out!\n");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 4;
+        new_rand = rand() % 2 + 1;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 3 && strcmp(choice, "4") == 0)
     {
-                size_t length = strlen(name) + strlen("You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in face.\nYou die.\n") + strlen(death_level(name)) + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in face.\nYou die.\n");
-                strcat(result, death_level(name));
-                level = 0;
-                return result;
+        size_t length = strlen(name) + strlen("You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in face.\nYou die.\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in face.\nYou die.\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 4 && strcmp(choice, "1") == 0 && new_rand == 1)
     {
-                size_t length = strlen(name) + strlen("You do not kill The Mighty Lion.\nUnfortunately, The Mighty Lion eats you!\n") + strlen(death_level(name)) + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You do not kill The Mighty Lion.\nUnfortunately, The Mighty Lion eats you!\n");
-                strcat(result, death_level(name));
-                level = 0;
-                return result;
+        size_t length = strlen(name) + strlen("You do not kill The Mighty Lion.\nUnfortunately, The Mighty Lion eats you!\n") + strlen(death_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You do not kill The Mighty Lion.\nUnfortunately, The Mighty Lion eats you!\n");
+        strcat(result, death_level(name));
+        level = 0;
+        return result;
     }
 
     if (strcmp(character, "the_mighty_lion_terrain") == 0 && level == 4 && strcmp(choice, "1") == 0 && new_rand == 2)
     {
-                size_t length = strlen(name) + strlen("You kill The Mighty Lion!\nYour tribe celebrates!\n") + strlen(victory_level(name)) + 1;
-                char * result = (char *)malloc(length);
-                strcpy(result, "You kill The Mighty Lion!\nYour tribe celebrates!\n");
-                strcat(result, victory_level(name));
-                level = 0;
-                return result;
+        size_t length = strlen(name) + strlen("You kill The Mighty Lion!\nYour tribe celebrates!\n") + strlen(victory_level(name)) + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You kill The Mighty Lion!\nYour tribe celebrates!\n");
+        strcat(result, victory_level(name));
+        level = 0;
+        return result;
+    }
+
+    if (strcmp(character, "2") == 0 && level == 0)
+    {
+        size_t length = strlen(name) + strlen("You have chosen to be a warrior!\nDo you want to go hunt The Mighty Lion or stay put?\n\n1- Hunt The Mighty Lion; 2- Stay put\nMake your choice") + strlen(":\n") + 1;
+        char * result = (char *)malloc(length);
+        strcpy(result, "You have chosen to be a warrior!\nDo you want to go hunt The Mighty Lion or stay put?\n\n1- Hunt The Mighty Lion; 2- Stay put\nMake your choice");
+        strcat(result, name);
+        strcat(result, ":\n");
+        level = 1;
+        return result;
     }
     
     else

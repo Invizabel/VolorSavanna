@@ -12,3 +12,13 @@ TODO:
 To play:
 * Python (Windows): pip install VolorSavanna && python3 -m VolorSavanna
 * Python (Linux): python3 -m venv env && source env/bin/activate && pip install VolorSavanna && python3 -m VolorSavanna
+
+To compile to DLL:
+* gcc -fPIC -shared -o VolorSavanna.so VolorSavanna.c
+
+To use DLL (Python):
+import ctypes
+import os
+current_directory = os.getcwd()
+game = ctypes.CDLL(f"{current_directory}/VolorSavanna.so")
+print(game.main())

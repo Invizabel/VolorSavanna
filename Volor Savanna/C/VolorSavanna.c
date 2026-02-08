@@ -17,11 +17,7 @@ int main()
         {
             return 0;
         }
-        else
-        {
-            return 0;
-        }
-
+            
         else
         {
             while (true)
@@ -42,7 +38,9 @@ int main()
 
                 else
                 {
-                    return 0;
+                    printf("%s", "\nInvalid choice!\nPress any key to continue!");
+                    scanf("%s", pause);
+                    break;
                 }
                 
                 scanf("%s", choice);

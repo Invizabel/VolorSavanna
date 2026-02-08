@@ -17,6 +17,10 @@ int main()
         {
             return 0;
         }
+        else
+        {
+            return 0;
+        }
 
         else
         {
@@ -34,6 +38,11 @@ int main()
                 {
                     level = 0;
                     break;
+                }
+
+                else
+                {
+                    return 0;
                 }
                 
                 scanf("%s", choice);

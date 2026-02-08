@@ -1216,7 +1216,6 @@ static inline const char * VolorSavannaGame()
     
     else
     {
-        level = -1;
-        //return "\nInvalid option!\n";
+        return "\nInvalid option!\n";
     }
 }

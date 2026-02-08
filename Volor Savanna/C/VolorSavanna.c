@@ -35,13 +35,6 @@ int main()
                     level = 0;
                     break;
                 }
-
-                else
-                {
-                    printf("%s", "\nInvalid choice!\nPress any key to continue!");
-                    scanf("%s", pause);
-                    break;
-                }
                 
                 scanf("%s", choice);
             }

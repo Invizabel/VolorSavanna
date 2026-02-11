@@ -7,12 +7,19 @@ int main()
 {
     char pause[1];
     printf("%s", name_prompt);
-    scanf("%s", name);
-    
+    if (!scanf("%s", name) == 1)
+    {
+        return 1;
+    }
+
     while (true)
     {
         printf("%s", character_prompt);;
-        scanf("%s", character);
+        if (!scanf("%s", character) == 1)
+        {
+            return 1;
+        }
+        
         if (strcmp(character, "e") == 0)
         {
             return 0;
@@ -26,7 +33,10 @@ int main()
                 if (level == 0)
                 {
                     printf("%s", "\nPress any key to continue!");
-                    scanf("%s", pause);
+                    if (!scanf("%s", pause) == 1)
+                    {
+                        return 1;
+                    }
                     break;
                 }
 
@@ -36,7 +46,10 @@ int main()
                     break;
                 }
                 
-                scanf("%s", choice);
+                if (!scanf("%s", choice) == 1)
+                {
+                    return 1;
+                }
             }
 
         }

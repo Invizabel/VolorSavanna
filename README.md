@@ -28,4 +28,5 @@ print(game.main())
 
 Security GCC Flags:
 * -Werror -fstack-protector-strong -fstack-protector-all -fstack-clash-protection -D_FORTIFY_SOURCE=2 -fPIE -pie -fno-common -fvisibility=hidden -fno-builtin -fno-plt -pipe -O3
-* Example: ```gcc VolorSavanna.c -o VolorSavanna.bin -Werror -fstack-protector-strong -fstack-protector-all -fstack-clash-protection -D_FORTIFY_SOURCE=2 -fPIE -pie -fno-common -fvisibility=hidden -fno-builtin -fno-plt -pipe -O3```
+* Linux Binary: ```gcc VolorSavanna.c -o VolorSavanna.bin -Werror -fstack-protector-strong -fstack-protector-all -fstack-clash-protection -D_FORTIFY_SOURCE=2 -fPIE -pie -fno-common -fvisibility=hidden -fno-builtin -fno-plt -pipe -O3```
+* Linux DLL: ```gcc VolorSavanna.c -o VolorSavanna.bin -fPIC -shared -Werror -fstack-protector-strong -fstack-protector-all -fstack-clash-protection -D_FORTIFY_SOURCE=2 -fPIE -pie -fno-common -fvisibility=hidden -fno-builtin -fno-plt -pipe -O3```

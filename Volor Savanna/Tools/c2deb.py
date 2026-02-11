@@ -4,7 +4,7 @@ import os
 os.system("rm -rf VolorSavanna")
 os.system("rm -rf volorsavanna")
 os.system("git clone https://github.com/Invizabel/VolorSavanna")
-os.system("gcc 'VolorSavanna/Volor Savanna/C/VolorSavanna.c' -o volorsavanna")
+os.system("gcc 'VolorSavanna/Volor Savanna/C/VolorSavanna.c' -o volorsavanna -Werror -fstack-protector-strong -fstack-protector-all -fstack-clash-protection -D_FORTIFY_SOURCE=2 -fPIE -pie -fno-common -fvisibility=hidden -fno-builtin -fno-plt -pipe -O3")
 os.system("chmod +x volorsavanna")
 os.system("mkdir -p volor-savanna/DEBIAN")
 os.system("mkdir -p volor-savanna/usr/local/bin")

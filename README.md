@@ -25,3 +25,5 @@ current_directory = os.getcwd()
 game = ctypes.CDLL(f"{current_directory}/VolorSavanna.so")
 print(game.main())
 ```
+
+* To compile to debian package (in the Tools folder): python3 c2deb.py

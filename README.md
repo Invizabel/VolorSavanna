@@ -32,7 +32,10 @@ To use DLL (Python) (Debian Linux):
 ```
 import ctypes
 import os
-game = ctypes.CDLL(f"libvolorsavanna.so")
+from ctypes.util import find_library
+
+lib = find_library("volorsavanna")
+game = ctypes.CDLL(lib)
 print(game.main())
 ```
 

@@ -26,8 +26,9 @@ game = ctypes.CDLL(f"{current_directory}/VolorSavanna.so")
 print(game.main())
 ```
 
-To use DLL (Python) (Debian Linux): git clone https://github.com/Invizabel/VolorSavanna && cd VolorSavanna/Volor\ Savanna/Tools && python3 c2deb.py && sudo dpkg -i volor-savanna.deb
-
+To use DLL (Python) (Debian Linux):
+* git clone https://github.com/Invizabel/VolorSavanna && cd VolorSavanna/Volor\ Savanna/Tools && python3 c2deb.py && sudo dpkg -i volor-savanna.deb
+* Then:
 ```
 import ctypes
 import os

@@ -9,6 +9,7 @@ os.system("gcc -fPIC -shared -o libvolorsavanna.so 'VolorSavanna/Volor Savanna/C
 os.system("chmod +x volorsavanna")
 os.system("mkdir -p volor-savanna/DEBIAN")
 os.system("mkdir -p volor-savanna/usr/local/bin")
+os.system("mkdir -p volor-savanna/usr/local/lib")
 
 with open("volor-savanna/DEBIAN/control", "w") as file:
     file.write("""Package: volorsavanna
@@ -22,5 +23,5 @@ with open("volor-savanna/debian-binary", "w") as file:
     file.write("2.0")
 
 os.system("cp volorsavanna volor-savanna/usr/local/bin/volorsavanna")
-os.system("cp libvolorsavanna.so volor-savanna/usr/local/bin/volorsavanna")
+os.system("cp libvolorsavanna.so volor-savanna/usr/local/lib/libvolorsavanna.so")
 os.system("dpkg-deb --build volor-savanna")

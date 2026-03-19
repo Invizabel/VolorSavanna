@@ -30,6 +30,7 @@ int main()
             while (true)
             {
                 printf("%s", VolorSavannaGame());
+                free(result);
                 if (level == 0)
                 {
                     printf("%s", "\nPress any key to continue!");

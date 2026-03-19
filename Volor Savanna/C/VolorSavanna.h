@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+char * result;
 char name[256];
 char character[256];
 char choice[1];

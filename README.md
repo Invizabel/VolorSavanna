@@ -1,22 +1,22 @@
-Volor Savanna is a text adventure game
+##Volor Savanna is a text adventure game
 
-COMPLETE:
+#### COMPLETE:
 * C
 * Python
 
-TODO:
+#### TODO:
 * Go
 * TI
 * Web
 
-To play:
+#### To play:
 * Python (Windows): pip install VolorSavanna && python3 -m VolorSavanna
 * Python (Linux): python3 -m venv env && source env/bin/activate && pip install VolorSavanna && python3 -m VolorSavanna
 
-To compile to DLL:
+#### To compile to DLL:
 * gcc -fPIC -shared -o VolorSavanna.so VolorSavanna.c
 
-To use DLL (Python) (Non-Debian Linux):
+#### To use DLL (Python) (Non-Debian Linux):
 
 ```
 import ctypes
@@ -26,7 +26,7 @@ game = ctypes.CDLL(f"{current_directory}/VolorSavanna.so")
 print(game.main())
 ```
 
-To use DLL (Python) (Debian Linux):
+#### To use DLL (Python) (Debian Linux):
 * git clone https://github.com/Invizabel/VolorSavanna && cd VolorSavanna/Volor\ Savanna/Tools && python3 c2deb.py && sudo dpkg -i volor-savanna.deb
 * Then:
 ```
@@ -39,4 +39,4 @@ game = ctypes.CDLL(lib)
 print(game.main())
 ```
 
-* To compile to debian package (in the Tools folder): python3 c2deb.py
+* To compile DLL to debian package (in the Tools folder): python3 c2deb.py

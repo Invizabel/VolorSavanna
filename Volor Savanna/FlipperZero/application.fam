@@ -1,0 +1,11 @@
+App(
+    appid="volorsavanna",
+    name="Volor Savanna",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="main",
+    fap_description="A text adventure game that takes you to the African Savanna!",
+    fap_author="Invizabel",
+    fap_weburl="https://github.com/Invizabel/VolorSavanna",
+    fap_category="Games",
+    fap_version="1.0"
+)

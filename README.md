@@ -5,6 +5,7 @@
 * Python
 
 #### TODO:
+* Flipper Zero
 * Go
 * TI
 * Web

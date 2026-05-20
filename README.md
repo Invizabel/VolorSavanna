@@ -7,7 +7,7 @@
 #### TODO:
 * Flipper Zero
 * Go
-* TI
+* TI 84
 * Web
 
 #### To play:

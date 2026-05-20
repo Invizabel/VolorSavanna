@@ -1,88 +1,79 @@
-#include "dolphin/dolphin.h"
 #include <furi.h>
 #include <gui/gui.h>
+#include <gui/view_dispatcher.h>
+#include <gui/modules/text_input.h>
+#include <gui/modules/text_box.h>
 #include "VolorSavanna.h"
 
-bool is_right = false;
-bool is_left = false;
-bool pause = false;
-char text_str[4096];
+typedef struct {
+    ViewDispatcher * view_dispatcher;
+    TextInput * text_input;
+    TextBox * text_box;
 
-static void draw_callback(Canvas* canvas, void * context)
+    char input_buffer[2];
+    FuriString * display_text;
+} App;
+
+enum {
+    AppViewTextInput,
+    AppViewTextBox,
+};
+
+static void text_input_callback(void * context)
 {
-    UNUSED(context);
-    canvas_clear(canvas);
+    App * app = context;
 
-    if (pause == false)
-    {
-        snprintf(text_str, sizeof(text_str), "%s", VolorSavannaGame());
-        canvas_draw_str(canvas,2,8,text_str);
-        pause = true;
-    }
+    // Update display text
+    furi_string_set(app->display_text,character_prompt);
 
-    canvas_commit(canvas);
+    // Push text into text box
+    text_box_set_text(app->text_box,furi_string_get_cstr(app->display_text));
+
+    // Switch to display view
+    view_dispatcher_switch_to_view(app->view_dispatcher,AppViewTextBox);
 }
 
-static void input_callback(InputEvent* event, void * context)
+int32_t VolorSavanna(void * p)
 {
-    FuriMessageQueue* queue = (FuriMessageQueue *)context;
-    if(event->type == InputTypeShort || event->type == InputTypeRepeat || event->type == InputTypePress)
-    {
-        if (event->key == InputKeyRight)
-        {
-            is_right = true;
-        }
+    UNUSED(p);
+    // Variables needed for game
+    char name[7] = "Player";
+    char is_choice[17] = "Make your choice ";
+    strcpy(is_choice + strlen(is_choice), name);
+    strcpy(is_choice + strlen(is_choice), ":");
 
-        if (event->key == InputKeyLeft)
-        {
-            is_left = true;
-        }
-    }
+    // Alocating memory
+    App * app = malloc(sizeof(App));
+    app->display_text = furi_string_alloc();
 
-    if(event->type == InputTypeRelease)
-    {
-        if (event->key == InputKeyRight)
-        {
-            is_right = false;
-        }
+    // GUI
+    Gui * gui = furi_record_open(RECORD_GUI);
+    app->view_dispatcher = view_dispatcher_alloc();
+    view_dispatcher_attach_to_gui(app->view_dispatcher,gui,ViewDispatcherTypeFullscreen);
 
-        if (event->key == InputKeyLeft)
-        {
-            is_left = false;
-        }
-    }
-    
-    furi_message_queue_put(queue, event, FuriWaitForever);
-}
+    // Choice View
+    app->text_input = text_input_alloc();
+    text_input_set_header_text(app->text_input,is_choice);
+    text_input_set_result_callback(app->text_input,text_input_callback,app,app->input_buffer,sizeof(app->input_buffer),true);
+    view_dispatcher_add_view(app->view_dispatcher,AppViewTextInput,text_input_get_view(app->text_input));
 
-int main()
-{
-    FuriMessageQueue* queue = furi_message_queue_alloc(8, sizeof(InputEvent));
-    ViewPort* view_port = view_port_alloc();
-    view_port_draw_callback_set(view_port, draw_callback, NULL);
-    view_port_input_callback_set(view_port, input_callback, queue);
-    Gui * gui = (Gui *)furi_record_open("gui");
-    gui_add_view_port(gui, view_port, GuiLayerFullscreen);
-    dolphin_deed(DolphinDeedPluginGameStart);
+    // Adventure View
+    app->text_box = text_box_alloc();
+    text_box_set_font(app->text_box,TextBoxFontText);
+    text_box_set_focus(app->text_box,TextBoxFocusStart);
+    view_dispatcher_add_view(app->view_dispatcher,AppViewTextBox,text_box_get_view(app->text_box));
 
-    InputEvent event;
-    bool running = true;
-    while(running)
-    {
-        if(furi_message_queue_get(queue, &event, FuriWaitForever) == FuriStatusOk)
-        {
-            if(event.type == InputTypeShort && event.key == InputKeyBack)
-            {
-                running = false;
-            }
-        }
-        view_port_update(view_port);
-    }
+    // Start Game
+    view_dispatcher_switch_to_view(app->view_dispatcher,AppViewTextInput);
+    view_dispatcher_run(app->view_dispatcher);
 
-    view_port_enabled_set(view_port, false);
-    furi_message_queue_free(queue);
-    gui_remove_view_port(gui, view_port);
-    view_port_free(view_port);
+    // Cleanup
+    text_input_free(app->text_input);
+    text_box_free(app->text_box);
+    view_dispatcher_free(app->view_dispatcher);
+    furi_string_free(app->display_text);
     furi_record_close(RECORD_GUI);
+    free(app);
+
     return 0;
 }

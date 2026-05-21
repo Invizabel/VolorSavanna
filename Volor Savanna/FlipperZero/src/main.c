@@ -31,13 +31,25 @@ static void text_input_callback(void * context)
 {
     App * app = context;
 
+    // Variables needed for game
+    char ask_choice[288] = "Make your choice ";
+
     if (is_choice == 0)
     {
+        // grab the players name and store it
         strcpy(name, app->input_buffer);
+
+        // change the input field header
+        strcpy(ask_choice + strlen(ask_choice),  name);
+        strcpy(ask_choice + strlen(ask_choice),  ":");
+        
+        // set the input field header
+        text_input_set_header_text(app->text_input, ask_choice);
+        
         is_choice = 1;
     }
 
-    else if (is_choice == 1)
+    if (is_choice == 1)
     {
         // Update display text
         furi_string_set(app->display_text, character_prompt);
@@ -63,7 +75,7 @@ static void text_input_callback(void * context)
             is_choice = 3;
         }
 
-        else if (is_choice == 3)
+        if (is_choice == 3)
         {
             strcpy(choice, app->input_buffer);
 
@@ -75,11 +87,6 @@ static void text_input_callback(void * context)
             
             // Switch to display view
             view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextBox);
-
-            if (level == 0)
-            {
-                is_choice = 1;
-            }
         }
     }
 }
@@ -87,6 +94,12 @@ static void text_input_callback(void * context)
 bool text_box_back_callback(void * context)
 {
     App * app = context;
+
+    if (level == 0 && is_choice == 3)
+    {
+        text_input_set_header_text(app->text_input, name_prompt);
+        is_choice = 0;
+    }
 
     view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextInput);
 
@@ -96,10 +109,6 @@ bool text_box_back_callback(void * context)
 int32_t VolorSavanna(void * p)
 {
     UNUSED(p);
-    // Variables needed for game
-    char ask_choice[18] = "Make your choice ";
-    strcpy(ask_choice + strlen(ask_choice),  name);
-    strcpy(ask_choice + strlen(ask_choice),  ":");
 
     // Alocating memory
     App * app = malloc(sizeof(App));

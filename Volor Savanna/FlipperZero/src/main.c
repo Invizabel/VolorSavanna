@@ -5,13 +5,20 @@
 #include <gui/modules/text_box.h>
 #include "VolorSavanna.h"
 
+int is_choice = 0;
+
+bool is_digit(char digit)
+{
+    return digit >= '0' && digit <= '9';
+}
+
 typedef struct {
     ViewDispatcher * view_dispatcher;
     SceneManager * scene_manager;
     TextInput * text_input;
     TextBox * text_box;
 
-    char input_buffer[2];
+    char input_buffer[16];
     FuriString * display_text;
 } App;
 
@@ -24,19 +31,62 @@ static void text_input_callback(void * context)
 {
     App * app = context;
 
-    // Update display text
-    furi_string_set(app->display_text, character_prompt);
+    if (is_choice == 0)
+    {
+        strcpy(name, app->input_buffer);
+        is_choice = 1;
+    }
 
-    // Push text into text box
-    text_box_set_text(app->text_box, furi_string_get_cstr(app->display_text));
+    else if (is_choice == 1)
+    {
+        // Update display text
+        furi_string_set(app->display_text, character_prompt);
 
-    // Switch to display view
-    view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextBox);
+        // Push text into text box
+        text_box_set_text(app->text_box, furi_string_get_cstr(app->display_text));
+        
+        // Switch to display view
+        view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextBox);
+
+        if (strcmp(app->input_buffer,  "E") == 0)
+        {
+            // pass for now
+        }
+        
+        is_choice = 2;
+    }
+
+    else
+    {   if (is_choice == 2)
+        {
+            strcpy(character, app->input_buffer);
+            is_choice = 3;
+        }
+
+        else if (is_choice == 3)
+        {
+            strcpy(choice, app->input_buffer);
+
+            // Update display text
+            furi_string_set(app->display_text, VolorSavannaGame());
+
+            // Push text into text box
+            text_box_set_text(app->text_box, furi_string_get_cstr(app->display_text));
+            
+            // Switch to display view
+            view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextBox);
+
+            if (level == 0)
+            {
+                is_choice = 1;
+            }
+        }
+    }
 }
 
 bool text_box_back_callback(void * context)
 {
-    App* app = context;
+    App * app = context;
 
     view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextInput);
 
@@ -47,10 +97,9 @@ int32_t VolorSavanna(void * p)
 {
     UNUSED(p);
     // Variables needed for game
-    char name[7] = "Player";
-    char is_choice[18] = "Make your choice ";
-    strcpy(is_choice + strlen(is_choice),  name);
-    strcpy(is_choice + strlen(is_choice),  ":");
+    char ask_choice[18] = "Make your choice ";
+    strcpy(ask_choice + strlen(ask_choice),  name);
+    strcpy(ask_choice + strlen(ask_choice),  ":");
 
     // Alocating memory
     App * app = malloc(sizeof(App));
@@ -67,7 +116,7 @@ int32_t VolorSavanna(void * p)
 
     // Choice View
     app->text_input = text_input_alloc();
-    text_input_set_header_text(app->text_input, is_choice);
+    text_input_set_header_text(app->text_input, name_prompt);
     text_input_set_result_callback(app->text_input, text_input_callback, app, app->input_buffer, sizeof(app->input_buffer), true);
     view_dispatcher_add_view(app->view_dispatcher, AppViewTextInput, text_input_get_view(app->text_input));
 

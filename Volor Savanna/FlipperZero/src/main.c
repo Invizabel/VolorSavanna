@@ -31,26 +31,31 @@ static void text_input_callback(void * context)
 {
     App * app = context;
 
-    // Variables needed for game
-    char ask_choice[288] = "Make your choice ";
-
     if (is_choice == 0)
     {
-        // grab the players name and store it
-        strcpy(name, app->input_buffer);
+        // Stop game upon user request
+        if (strcmp(app->input_buffer, "E") == 0)
+        {
+            view_dispatcher_stop(app->view_dispatcher);
+        }
 
-        // change the input field header
-        strcpy(ask_choice + strlen(ask_choice),  name);
-        strcpy(ask_choice + strlen(ask_choice),  ":");
+        // Grab the players name and store it
+        strcpy(name, app->input_buffer);
         
-        // set the input field header
-        text_input_set_header_text(app->text_input, ask_choice);
-        
+        // Set the input field header
+        text_input_set_header_text(app->text_input, "Make your choice:");
+
         is_choice = 1;
     }
 
     if (is_choice == 1)
     {
+        // Stop game upon user request
+        if (strcmp(app->input_buffer, "E") == 0)
+        {
+            view_dispatcher_stop(app->view_dispatcher);
+        }
+        
         // Update display text
         furi_string_set(app->display_text, character_prompt);
 
@@ -59,11 +64,6 @@ static void text_input_callback(void * context)
         
         // Switch to display view
         view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextBox);
-
-        if (strcmp(app->input_buffer,  "E") == 0)
-        {
-            // pass for now
-        }
         
         is_choice = 2;
     }
@@ -71,12 +71,24 @@ static void text_input_callback(void * context)
     else
     {   if (is_choice == 2)
         {
+            // Stop game upon user request
+            if (strcmp(app->input_buffer, "E") == 0)
+            {
+                view_dispatcher_stop(app->view_dispatcher);
+            }
+
             strcpy(character, app->input_buffer);
             is_choice = 3;
         }
 
         if (is_choice == 3)
         {
+            // Stop game upon user request
+            if (strcmp(app->input_buffer, "E") == 0)
+            {
+                view_dispatcher_stop(app->view_dispatcher);
+            }
+
             strcpy(choice, app->input_buffer);
 
             // Update display text
@@ -100,7 +112,8 @@ bool text_box_back_callback(void * context)
         text_input_set_header_text(app->text_input, name_prompt);
         is_choice = 0;
     }
-
+    
+    // Change the view
     view_dispatcher_switch_to_view(app->view_dispatcher, AppViewTextInput);
 
     return true;
@@ -110,7 +123,7 @@ int32_t VolorSavanna(void * p)
 {
     UNUSED(p);
 
-    // Alocating memory
+    // Allocating memory
     App * app = malloc(sizeof(App));
     app->display_text = furi_string_alloc();
 
@@ -140,12 +153,7 @@ int32_t VolorSavanna(void * p)
     view_dispatcher_run(app->view_dispatcher);
 
     // Cleanup
-    text_input_free(app->text_input);
-    text_box_free(app->text_box);
-    view_dispatcher_free(app->view_dispatcher);
-    furi_string_free(app->display_text);
     furi_record_close(RECORD_GUI);
-    free(app);
-
+    
     return 0;
 }

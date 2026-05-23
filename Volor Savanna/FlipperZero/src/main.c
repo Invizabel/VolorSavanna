@@ -33,14 +33,20 @@ static void text_input_callback(void * context)
 
     if (is_choice == 0)
     {
+        // Grab the players name and store it
+        strcpy(name, app->input_buffer);
+
         // Stop game upon user request
         if (strcmp(app->input_buffer, "E") == 0)
         {
             view_dispatcher_stop(app->view_dispatcher);
         }
 
-        // Grab the players name and store it
-        strcpy(name, app->input_buffer);
+        // Clear input biffer
+        for (int i = 0; i < 16; i++)
+        {
+            app->input_buffer[i] = '\0';
+        }
         
         // Set the input field header
         text_input_set_header_text(app->text_input, "Make your choice:");
@@ -54,6 +60,12 @@ static void text_input_callback(void * context)
         if (strcmp(app->input_buffer, "E") == 0)
         {
             view_dispatcher_stop(app->view_dispatcher);
+        }
+
+        // Clear input biffer
+        for (int i = 0; i < 16; i++)
+        {
+            app->input_buffer[i] = '\0';
         }
         
         // Update display text
@@ -71,25 +83,38 @@ static void text_input_callback(void * context)
     else
     {   if (is_choice == 2)
         {
+            strcpy(character, app->input_buffer);
+
             // Stop game upon user request
             if (strcmp(app->input_buffer, "E") == 0)
             {
                 view_dispatcher_stop(app->view_dispatcher);
             }
 
-            strcpy(character, app->input_buffer);
+            // Clear input biffer
+            for (int i = 0; i < 16; i++)
+            {
+                app->input_buffer[i] = '\0';
+            }
+
             is_choice = 3;
         }
 
         if (is_choice == 3)
         {
+            strcpy(choice, app->input_buffer);
+
             // Stop game upon user request
             if (strcmp(app->input_buffer, "E") == 0)
             {
                 view_dispatcher_stop(app->view_dispatcher);
             }
 
-            strcpy(choice, app->input_buffer);
+            // Clear input biffer
+            for (int i = 0; i < 16; i++)
+            {
+                app->input_buffer[i] = '\0';
+            }
 
             // Update display text
             furi_string_set(app->display_text, VolorSavannaGame());
@@ -130,10 +155,8 @@ int32_t VolorSavanna(void * p)
     // Setup
     Gui * gui = furi_record_open(RECORD_GUI);
     app->view_dispatcher = view_dispatcher_alloc();
-    
     view_dispatcher_set_event_callback_context(app->view_dispatcher, app);
     view_dispatcher_set_navigation_event_callback(app->view_dispatcher, text_box_back_callback);
-
     view_dispatcher_attach_to_gui(app->view_dispatcher, gui, ViewDispatcherTypeFullscreen);
 
     // Choice View
@@ -153,6 +176,11 @@ int32_t VolorSavanna(void * p)
     view_dispatcher_run(app->view_dispatcher);
 
     // Cleanup
+    view_dispatcher_remove_view(app->view_dispatcher, AppViewTextBox);
+    view_dispatcher_remove_view(app->view_dispatcher, AppViewTextInput);
+    view_dispatcher_free(app->view_dispatcher);
+    text_input_free(app->text_input);
+    free(app);
     furi_record_close(RECORD_GUI);
     
     return 0;

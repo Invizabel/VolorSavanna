@@ -21,10 +21,10 @@ static inline const char * death_level(char * name)
 
 static inline const char * victory_level(char * name)
 {
-    size_t length = strlen(name) + strlen(", YOU WIN!\nTHE WIN!") + 1;
+    size_t length = strlen(name) + strlen(", YOU WIN!\nTHE END!") + 1;
     char * result = (char *)malloc(length);
     strcpy(result, name);
-    strcpy(result + strlen(result), ", YOU WIN!\nTHE WIN!");
+    strcpy(result + strlen(result), ", YOU WIN!\nTHE END!");
     return result;
 }
 

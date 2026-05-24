@@ -4,7 +4,7 @@ App(
     apptype=FlipperAppType.EXTERNAL, 
     entry_point="VolorSavanna", 
     requires=["gui"], 
-    fap_description="A text adventure game that takes you to the African Savanna!", 
+    fap_description="A text adventure game that takes you to the African Savanna! Type 'E' to exit the game at any time!", 
     fap_author="Invizabel", 
     fap_weburl="https://github.com/Invizabel/VolorSavanna", 
     fap_category="Games",

@@ -64,7 +64,7 @@ def hunter():
 
     if hunter_list[2] == "1":
         clear()
-        hunter_list[3] = input("You have chosen to go hunt!\nYou go on a successful hunt that should last your tribe a month.\nHowever, you are very tired and because you didn't eat, you have become very sick with malnutrition.\nUnluckily for you, the tribes medicine women is very busy and has a lot of patients to take care of first.\nDo you wish to wait for her or tough it out?\n\n1- Wait for her; 2- Tough it out\nMake your choice " + name + ":\n")
+        hunter_list[3] = input("You have chosen to go hunt!\nYou go on a successful hunt that should last your tribe a month.\nHowever, you are very tired and because you didn't eat, you have become very sick with malnutrition.\nUnluckily for you, the tribe's medicine woman is very busy and has a lot of patients to take care of first.\nDo you wish to wait for her or tough it out?\n\n1- Wait for her; 2- Tough it out\nMake your choice " + name + ":\n")
 
     if hunter_list[2] == "2":
         clear()
@@ -72,7 +72,7 @@ def hunter():
 
     if hunter_list[3] == "1":
         clear()
-        hunter_list[5] = input("You have chosen to wait for her.\nBecause You have chosen to wait for her patiently, she attends to you in a matter of a couple days.\nYou are better in a week.\nSome white men have come to your tribe.\nThey're asking to trade you guns for some of your tribe's animal pelts.\nDo you trade them pelts for guns?\n\n1- Trade; 2- Not trade\nMake your choice " + name + ":\n")
+        hunter_list[5] = input("You have chosen to wait for her.\nBecause you have chosen to wait for her patiently, she attends to you in a matter of a couple days.\nYou are better in a week.\nSome white men have come to your tribe.\nThey're asking to trade you guns for some of your tribe's animal pelts.\nDo you trade them pelts for guns?\n\n1- Trade; 2- Not trade\nMake your choice " + name + ":\n")
 
     if hunter_list[3] == "2":
         clear()
@@ -81,7 +81,7 @@ def hunter():
 
     if hunter_list[4] == "1":
         clear()
-        hunter_list[6] = input("You have chosen to hunt.\nYou have found a bunch of zebras to eat.\nSome white men are willing to trade your tribe rifles for some of your zebras.\nRecently, there has been some highly wanted criminals that trade weapons and drugs on the black market.\nThe problem is, you don't know if that's them.\nDo you trade?\nWhat about decline the offer?\nOr do you report them to the authorities?\n\n1- Trade; 2- Decline the trade; 3- Report them to the authorities\nMake your choice " + name + ":\n")
+        hunter_list[6] = input("You have chosen to hunt.\nYou have found a bunch of zebras to eat.\nSome white men are willing to trade your tribe rifles for some of your zebras.\nRecently, there have been some highly wanted criminals that trade weapons and drugs on the black market.\nThe problem is, you don't know if that's them.\nDo you trade?\nWhat about decline the offer?\nOr do you report them to the authorities?\n\n1- Trade; 2- Decline the trade; 3- Report them to the authorities\nMake your choice " + name + ":\n")
 
     if hunter_list[4] == "2":
         clear()
@@ -102,7 +102,7 @@ def hunter():
 
     if hunter_list[6] == "2":
         clear()
-        pause = input("You have chosen to decline the trade.\nUnfortunately, these people have smallpox.\nThey transmit it to your tribe.\nBecause you tribe doesn't have any immunity against smallpox your whole tribe dies!\n" + death_level)
+        pause = input("You have chosen to decline the trade.\nUnfortunately, these people have smallpox.\nThey transmit it to your tribe.\nBecause your tribe doesn't have any immunity against smallpox your whole tribe dies!\n" + death_level)
         volor_savanna_original()
 
     if hunter_list[6] == "3":
@@ -151,7 +151,7 @@ def the_mighty_lion():
     # keeps track of the players progress through the level. Used to prevent cheating.
     the_mighty_lion_list = ["0", "1", "2", "3", "4", "5", "6"]
 
-    the_mighty_lion_list[1] = input("You have chosen to hunt The Mighty Lion.\nYou have been on your journey for about a week now.\nThe trail splits off into three sections.\nDo you choose to go through the canyon?\nHow about the prairie?\nOr what about keep continuing through the forest?\n\n1- Canyon; 2- Prairie; 3- Forest\nMake your choice " + name + ":\n")
+    the_mighty_lion_list[1] = input("You have chosen to hunt The Mighty Lion.\nYou have been on your journey for about a week now.\nThe trail splits off into three sections.\nDo you choose to go through the canyon?\nHow about the prairie?\nOr what about continuing on through the forest?\n\n1- Canyon; 2- Prairie; 3- Forest\nMake your choice " + name + ":\n")
 
     if the_mighty_lion_list[1] == "1":
         clear()
@@ -252,7 +252,7 @@ def the_mighty_lion_terrain():
 
     if the_mighty_lion_terrain_list[3] == "4":
         clear()
-        pause = input("You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in face.\nYou die.\n" + death_level)
+        pause = input("You have chosen to use your overpowered gun to kill The Mighty Lion.\nUnfortunately, your gun explodes in your face.\nYou die.\n" + death_level)
         volor_savanna_original()
 
     if the_mighty_lion_terrain_list[4] == "1" and rand == 1:
@@ -311,7 +311,7 @@ def warrior():
 
     if warrior_list[5] == "1":
         clear()
-        pause = input("You go after the enemy tribe with the few warriors you have left.\nUnfortunately, while on your way The Mighty Pac-Man gobbles you up.\nYou guys are no match for the The Mighty Pac-Man!\n" + death_level)
+        pause = input("You go after the enemy tribe with the few warriors you have left.\nUnfortunately, while on your way The Mighty Pac-Man gobbles you up.\nYou guys are no match for The Mighty Pac-Man!\n" + death_level)
         volor_savanna_original()
 
     if warrior_list[5] == "2":
@@ -331,7 +331,7 @@ def crafter():
 
     if crafter_list[1] == "1":
         clear()
-        crafter_list[2] = input("You have chosen to put red dye on the feathers!\nBecause you put red dye on the feathers none were lost so the hunters were able to bring home more food!\nBecause of this you have one months worth of food for the winter!\nYou have been asked to craft some spearheads.\nHow do you want to craft them?\n1- Put poison on the spearheads; 2- Just make them\nMake your choice " + name + ":\n")
+        crafter_list[2] = input("You have chosen to put red dye on the feathers!\nBecause you put red dye on the feathers none were lost so the hunters were able to bring home more food!\nBecause of this you have one month's worth of food for the winter!\nYou have been asked to craft some spearheads.\nHow do you want to craft them?\n1- Put poison on the spearheads; 2- Just make them\nMake your choice " + name + ":\n")
 
     if crafter_list[1] == "2":
         clear()
@@ -340,7 +340,7 @@ def crafter():
 
     if crafter_list[2] == "1":
         clear()
-        crafter_list[3] = input("You have chosen to put poison on the spear heads.\nThe animals die easier and your tribe gets more food for the winter.\nTo be exact one more month of food.\nSome white men come to your tribe.\nThey're paying a fortune for you to craft them some of your best acacia furniture.\nDo you want to craft some expensive acacia furniture for them, or do you not want to craft them the furniture their asking for?\n1- Craft them furniture; 2- Not craft them furniture\nMake your choice " + name + ":\n")
+        crafter_list[3] = input("You have chosen to put poison on the spear heads.\nThe animals die easier and your tribe gets more food for the winter.\nTo be exact, one more month of food.\nSome white men come to your tribe.\nThey're paying a fortune for you to craft them some of your best acacia furniture.\nDo you want to craft some expensive acacia furniture for them, or do you not want to craft them the furniture their asking for?\n1- Craft them furniture; 2- Not craft them furniture\nMake your choice " + name + ":\n")
 
     if crafter_list[2] == "2":
         clear()
@@ -361,7 +361,7 @@ def crafter():
 
     if crafter_list[4] == "2":
         clear()
-        pause = input("You have chosen not to buy a milling machine.\nUnfortunately, you tribe dies from a famine.\n" + death_level)
+        pause = input("You have chosen not to buy a milling machine.\nUnfortunately, your tribe dies from a famine.\n" + death_level)
         volor_savanna_original()
 
     if crafter_list[5] == "1" and rand == 1:
@@ -426,7 +426,7 @@ def farmer():
 
     if farmer_list[4] == "2":
         clear()
-        pause = input("You have chosen to distribute the food to your whole village.\nUnfortunately, because you have chosen to do this your food rots.\nYour whole village starves.\n" + death_level)
+        pause = input("You have chosen to distribute the food to your whole village.\nUnfortunately, because you have chosen to do this, your food rots.\nYour whole village starves.\n" + death_level)
         volor_savanna_original()
 
     if farmer_list[5] == "1":
@@ -497,7 +497,7 @@ def medicine_person():
 
     if medicine_person_list[5] == "1" and rand == 2:
         clear()
-        medicine_person_list[10] = input("You are not found guilty.\nSome white man come to your tribe.\nThey're asking you if they can settle near you.\nDo you want them to settle near you?\n1- Yes; 2- No\nMake your choice " + name + ":\n")
+        medicine_person_list[10] = input("You are not found guilty.\nSome white men come to your tribe.\nThey're asking you if they can settle near you.\nDo you want them to settle near you?\n1- Yes; 2- No\nMake your choice " + name + ":\n")
 
     if medicine_person_list[6] == "1" or medicine_person_list[7] == "1":
         clear()

@@ -2,9 +2,6 @@
     <head>
         <title>Volor Savanna</title>
         <script>
-            name = "Player";
-            var death_level = name + ", YOU LOSE!\nTHE END!"
-            var victory_level = name + ", YOU WIN!\nTHE END!"
             function reset_js()
             {
                 document.cookie = "name=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
@@ -169,6 +166,9 @@
 
             function hunter()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
@@ -383,6 +383,9 @@
             
             function the_mighty_lion()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
@@ -519,6 +522,9 @@
             
             function terrain()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
 
@@ -633,6 +639,9 @@
 
             function warrior()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
@@ -742,6 +751,9 @@
 
             function crafter()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
@@ -868,6 +880,9 @@
 
             function farmer()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
@@ -995,6 +1010,9 @@
             
             function medicine_person()
             {
+                var death_level = name + ", YOU LOSE!\nTHE END!"
+                var victory_level = name + ", YOU WIN!\nTHE END!"
+                
                 if (document.cookie.includes("medicine_person_list_0=0"))
                 {
                     document.getElementById("my_text").innerHTML = "You have chosen to be a medicine person!<br>A man is very sick with a fever.<br>What do you want to do?<br>1- Not do anything; 2- Wash him<br>Make your choice " + name + ":<br>";

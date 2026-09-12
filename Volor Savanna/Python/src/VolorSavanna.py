@@ -295,7 +295,7 @@ def warrior():
         clear()
         warrior_list[4] = input("You have chosen to pick up the baby and bring him home.\nThe baby turns out to be an orphan.\nHis mother was killed by the enemy tribe and the baby was left by the Big Pond.\nYou raise him as your own.\nHe becomes a great warrior and you name him Bobert.\nYou need to go hunt down the enemy that attacked your tribe years ago.\nDo you take your son with you?\n\n1- Yes; 2- No\nMake your choice " + name + ":\n")
 
-    if warrior_list[3]  == "2":
+    if warrior_list[3] == "2":
         clear()
         warrior_list[5] = input("You have chosen to just ignore him.\nDo you choose to go after the enemy tribe with the few warriors you have left?\n\n1- Yes; 2- No\nMake your choice " + name + ":\n")
 

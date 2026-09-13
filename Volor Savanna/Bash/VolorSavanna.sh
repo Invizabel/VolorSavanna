@@ -117,7 +117,7 @@ function hunter()
     if [ "$hunter_list_6" == "1" ]; then
         clear
         printf "You have chosen to trade.\nLuckily, these aren't the criminals that are wanted.\nA couple months later the white men settle here.\nPeople keep on flooding into the white men's settlement.\nBecause of this your village becomes rich.\n$victory_level"
-        read -p "" hunter_list_6
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -166,7 +166,7 @@ function hunter()
     if [ "$hunter_list_9" == "1" ] && [ "$rand" == "2" ]; then
         clear
         printf "You manage to escape.\nYou live a long and prosperous life!\n$victory_level"
-        read -p "" hunter_list_9
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -342,7 +342,7 @@ function the_mighty_lion_terrain()
     if [ "$the_mighty_lion_terrain_list_4" == "1" ] && [ "$rand" == "2" ]; then
         clear
         printf "You kill The Mighty Lion!\nYour tribe celebrates!\n$victory_level"
-        read -p "" the_mighty_lion_terrain_list_4
+        read -p "" pause
         volor_savanna_original
     fi
 }
@@ -394,7 +394,7 @@ function warrior()
     if [ "$warrior_list_4" == "1" ]; then
         clear
         printf "You have chosen to take your son with you.\nYour hunting party would have died if you didn't have your son.\nSince your son is a great warrior the enemy tribe which you now know as Yosemite plans on never attacking your tribe again!\nYou return home and find out your son has a brand-new kid.\nBobert, your son, names him Mighty " + name + " Jr.\nYou finally have a grandson.\nYou die at a good old age.\nYou pass away happily in your sleep.\n$victory_level"
-        read -p "" warrior_list_4
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -497,7 +497,7 @@ function crafter()
     if [ "$crafter_list_6" == "1" ]; then
         clear
         printf "You have chosen to use your milling machine to make them wooden toys.\nYou have had a successful life!\n$victory_level"
-        read -p "" crafter_list_6
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -585,7 +585,7 @@ function farmer()
     if [ "$farmer_list_6" == "1" ]; then
         clear
         printf "You have chosen to sell your surplus cotton.\nYou are now rich!\n$victory_level"
-        read -p "" farmer_list_6
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -760,7 +760,7 @@ function medicine_person()
     if [ "$medicine_person_list_10" == "1" ]; then
         clear
         printf "You have chosen to let them settle here.\nThey build a hospital.\nTheir settlement grows.\nYour village thrives because of the new settlement.\n$victory_level"
-        read -p "" medicine_person_list_10
+        read -p "" pause
         volor_savanna_original
     fi
 
@@ -794,7 +794,7 @@ function medicine_person()
     if [ "$medicine_person_list_12" == "1" ] && [ "$rand" == "2" ]; then
         clear
         printf "You capture the kidnapper.\nYou receive $10k from the local authorities.\n$victory_level"
-        read -p "" medicine_person_list_12
+        read -p "" pause
         volor_savanna_original
     fi
 }

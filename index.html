@@ -659,7 +659,7 @@
                 let death_level = name + ", YOU LOSE!<br>THE END!";
                 let victory_level = name + ", YOU WIN!<br>THE END!";
                 
-                floor(Math.random() * 2) + 1;
+                let rand = Math.floor(Math.random() * 2) + 1;
                 document.cookie = "random_cookie=" + rand.toString() + "; Path=/;";
                 
                 if (document.cookie.includes("warrior_list_0=0"))
